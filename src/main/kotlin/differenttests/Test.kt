@@ -1,4 +1,4 @@
-package DifferentTests
+package differenttests
 
 data class Test(var str: String) {
 }

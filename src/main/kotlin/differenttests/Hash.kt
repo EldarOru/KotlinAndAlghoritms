@@ -1,4 +1,4 @@
-package DifferentTests
+package differenttests
 
 fun main() {
     val playerOne = Player("El", "cool")

@@ -1,4 +1,7 @@
+package solveproblems
+
 import java.util.*
+
 
 fun main() {
     println(binarySearch(Array(100) { it + 1 }, 25))
@@ -57,15 +60,6 @@ fun Array<Int>.swap(i: Int, j: Int) {
     this[j] = num
 }
 
-fun reverse(arr: List<Char>): List<Char?> {
-    val size = arr.size
-    val myArr = arrayOfNulls<Char>(size)
-
-    for (i in arr.indices) {
-        myArr[size - 1 - i] = arr[i]
-    }
-    return myArr.toList()
-}
 
 fun myFactorial(int: Int): Int {
     return if (int == 1) 1
@@ -152,6 +146,7 @@ fun bracketEqual(str: String): Boolean {
 
 }
 
+//Задача из тестового на стажера в Касперский
 /*
 public static int minimumNumber(int n, String password) {
     // Return the minimum number of characters to make the password strong

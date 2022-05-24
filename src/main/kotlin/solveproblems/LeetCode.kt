@@ -1,10 +1,7 @@
-package SolveProblems
+package solveproblems
 
 import kotlin.math.abs
 import kotlin.math.min
-
-class LeetCode {
-}
 
 fun main() {
     //println(firstPalindrome(arrayOf("abc","car","ada")))
@@ -17,11 +14,11 @@ fun main() {
     //println(kidsWithCandies(intArrayOf(1,2,3),5))
     //println(restoreString("codeleet", intArrayOf(4,5,6,7,0,2,1,3)))
     //println(shuffle(intArrayOf(2,5,1,3,4,7),3).toList())
-
-    val data = "мама мыла раму"
-    val arrData = data.toList()
-    println(reverse(arrData).toString())
+    //val data = "мама мыла раму"
+    //val arrData = data.toList()
+    //println(solveproblems.reverse(arrData).toString())
 }
+
 fun firstPalindrome(words: Array<String>): String {
     for (i in words){
         var str = ""
@@ -329,7 +326,6 @@ fun reverse(arr: List<Char>): List<Char?>{
 
     return myArr.toList()
 }
-
 
 fun compareTriplets(a: Array<Int>, b: Array<Int>): Array<Int> {
     val arr = arrayOf(0,0)

@@ -19,7 +19,7 @@ fun main() {
     val arrayList = arrayListOf<Int>()
     arrayList.add(0)
 
-    //newArrayList и arrayList ссыляются на один объект и при изменении обе ссылки будут знать об этом
+    //newArrayList и arrayList ссыляются на один объект и при изменении обе ссылки будут знать об этом и реагировать
     val newArrayList = arrayList
     arrayList.add(1)
     arrayList += 5
@@ -43,20 +43,16 @@ fun main() {
     println("List is ${list.javaClass.name.toString()}")
     list  += 5
 
-
     val array = arrayOfNulls<String>(5)
+
     //Сохраняет очередность добавления
     val lOne = hashSetOf<Int>()
     val l = linkedSetOf<Int>()
-    l.add(5)
-    l.add(1)
-    l.add(2)
+    l.add(5); l.add(1); l.add(2)
     println(l.toList().toString())
 
     val h = hashSetOf<Int>()
-    h.add(5)
-    h.add(1)
-    h.add(2)
+    h.add(5); h.add(1); h.add(2)
     println(h.toList().toString())
     println(h.javaClass.name.toString())
 
@@ -98,7 +94,6 @@ fun staircase(n: Int) {
     }
 
 }
-
 
 fun encryption(s: String): String {
     val stringLength = s.length
@@ -253,11 +248,6 @@ fun plusMinus(arr: Array<Int>): Unit {
     println(zeros/arr.size)
 }
 
-//сделать
-fun matrixMultiplication(){
-
-}
-
 fun getMinimumCost(k: Int, c: Array<Int>): Int {
     val arr = Array(k){0}
     println(arr.toList())
@@ -289,6 +279,7 @@ fun gradingStudents(grades: Array<Int>): Array<Int> {
     }
     return result
 }
+
 fun birthdayCakeCandles(candles: Array<Int>): Int {
     if (candles.size == 1) return candles[0]
     val sortArray = candles.sortedArray().reversedArray()
