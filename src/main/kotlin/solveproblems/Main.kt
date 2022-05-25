@@ -4,13 +4,16 @@ import kotlin.math.*
 import kotlin.random.Random
 
 fun main() {
+    /*
     val str = readLine()?.split(" ") ?: arrayListOf("0", "0")
     val a = str[0].toInt()
     val b = str[1].toInt()
     println(a+b)
+
+     */
     println(intArrayOf(1, 3, 7, 2, 3, 4, 2, 8).selectionSort().toList())
 
-    println(intArrayOf(1, 3, 7, 2, 3, 4, 2, 8).bubbleSort().toList())
+    println("Bubble sort: " + intArrayOf(1, 3, 7, 2, 3, 4, 2, 8).bubbleSort().toList())
 
     println(factorial(5))
 
@@ -19,7 +22,7 @@ fun main() {
     val arrayList = arrayListOf<Int>()
     arrayList.add(0)
 
-    //newArrayList и arrayList ссыляются на один объект и при изменении обе ссылки будут знать об этом и реагировать
+    //newArrayList и arrayList ссылаются на один объект и при изменении обе ссылки будут знать об этом и реагировать
     val newArrayList = arrayList
     arrayList.add(1)
     arrayList += 5
@@ -309,9 +312,10 @@ fun IntArray.bubbleSort(): IntArray {
 }
 
 fun IntArray.swap(a: Int,b: Int){
-    val change = this[a]
-    this[a] = this[b]
-    this[b] = change
+    this[a] = this[a] xor this[b]
+    this[b] = this[b] xor this[a]
+    this[a] = this[a] xor this[b]
+
 }
 
 fun IntArray.selectionSort(): IntArray{

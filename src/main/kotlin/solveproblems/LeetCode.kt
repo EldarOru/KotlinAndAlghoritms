@@ -347,3 +347,41 @@ fun diagonalDifference(arr: Array<Array<Int>>): Int {
     }
     return abs(fs-ss)
 }
+
+fun majorityElement(nums: IntArray): Int {
+    val hm = hashMapOf<Int, Int>()
+    println(nums.size/2)
+    for (i in nums.indices){
+        hm[nums[i]] = hm.getOrDefault(nums[i], 0) + 1
+        if (hm[nums[i]]!! >= nums.size/2) return nums[i]
+    }
+    println(nums.size/2)
+    return 0
+}
+
+fun isPowerOfTwo(n: Int): Boolean {
+    return n and (n-1) == 0
+}
+
+fun missingNumber(nums: IntArray): Int {
+    var result = 0
+    for (i in nums.indices){
+        result = result xor i
+        result = result xor nums[i]
+    }
+    return result
+}
+
+fun reverseString(s: CharArray): Unit {
+    val middle = s.size shr 1
+    for (i in 0..middle){
+        swapChar(s, i, s.size - 1 - i)
+    }
+}
+
+fun swapChar(s: CharArray, start: Int, end: Int){
+    var temp = ' '
+    temp = s[start]
+    s[start] = s[end]
+    s[end] = temp
+}
