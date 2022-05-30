@@ -1,5 +1,7 @@
 package solveproblems
 
+import java.util.*
+import kotlin.collections.ArrayDeque
 import kotlin.math.abs
 import kotlin.math.min
 
@@ -17,6 +19,7 @@ fun main() {
     //val data = "мама мыла раму"
     //val arrData = data.toList()
     //println(solveproblems.reverse(arrData).toString())
+    println(findComplement(5))
 }
 
 fun firstPalindrome(words: Array<String>): String {
@@ -384,4 +387,57 @@ fun swapChar(s: CharArray, start: Int, end: Int){
     temp = s[start]
     s[start] = s[end]
     s[end] = temp
+}
+
+fun countBits(n: Int): IntArray {
+    val result = IntArray(n+1){ 0 }
+    for (i in result.indices) result[i] = result[i shl 1] + (i and 1) //f[i] = f[i/2] + i%2
+    return result
+    /*
+    val result = IntArray(n+1) { 0 }
+    for (i in result.indices){
+        var num = i
+        var sum = 0
+        while (num != 0){
+            sum += num % 2
+            num /= 2
+        }
+        result[i] = sum
+    }
+    return result
+
+     */
+}
+
+ fun guessNumber(n:Int):Int {
+     var highPoint = n
+     var lowPoint = 1
+     while(lowPoint < highPoint){
+         val middle = lowPoint + (highPoint - lowPoint) / 2
+         when (readLine()?.toInt() ?: 0) {
+             -1 -> {
+                 highPoint = middle
+             }
+             1 -> {
+                 lowPoint = middle + 1
+             }
+             else -> return middle
+         }
+     }
+     return lowPoint
+}
+
+fun canConstruct(ransomNote: String, magazine: String): Boolean {
+    val arr = IntArray(26){ 0 }
+    for (i in ransomNote.indices){
+        arr[ransomNote[i] - 'a']++
+    }
+    for (j in magazine.indices){
+        if (--arr[magazine[j] - 'a'] < 0) return false
+    }
+    return true
+}
+
+fun findComplement(num: Int): Int {
+    return num.inv()
 }
