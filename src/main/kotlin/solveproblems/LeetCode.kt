@@ -2,6 +2,7 @@ package solveproblems
 
 import java.util.*
 import kotlin.collections.ArrayDeque
+import kotlin.collections.ArrayList
 import kotlin.math.abs
 import kotlin.math.min
 
@@ -19,7 +20,10 @@ fun main() {
     //val data = "мама мыла раму"
     //val arrData = data.toList()
     //println(solveproblems.reverse(arrData).toString())
-    println(findComplement(5))
+    println(findWords(arrayOf("Dad", "Hello", "Alaska")))
+    val a = setOf('a','s','d','f','g','h','j','k','l')
+    val b = 'd'
+    println(a.contains(b))
 }
 
 fun firstPalindrome(words: Array<String>): String {
@@ -438,6 +442,63 @@ fun canConstruct(ransomNote: String, magazine: String): Boolean {
     return true
 }
 
-fun findComplement(num: Int): Int {
-    return num.inv()
+fun findWords(words: Array<String>): Array<String> {
+    val arrOfSets = arrayListOf<Set<Char>>(setOf('q','w','e','r','t','y','u','i','o','p'),
+    setOf('a','s','d','f','g','h','j','k','l'),
+    setOf('z','x','c','v','b','n','m'))
+    val res = arrayListOf<String>()
+    var flag = true
+    for (i in words){
+        for (set in arrOfSets){
+            for (j in i){
+                if (!set.contains(j.lowercaseChar())){
+                    flag = false
+                    break
+                }
+            }
+            if (flag){
+                res.add(i)
+                break
+            }
+            flag = true
+        }
+    }
+    return res.toList().toTypedArray()
+}
+
+fun runningSum(nums: IntArray): IntArray {
+    val result = IntArray(nums.size) {if (it == 0) nums[0] else 0 }
+    for (i in 1..nums.size){
+        result[i] = result[i-1] + nums[i]
+    }
+    return result
+}
+
+fun smallerNumbersThanCurrent(nums: IntArray): IntArray {
+    val nm = nums.clone()
+    Arrays.sort(nm)
+    val hm = hashMapOf<Int, Int>()
+
+    for (i in nums.indices){
+        hm.putIfAbsent(nm[i], i)
+    }
+
+    for (j in nums.indices){
+        nm[j] = hm[nums[j]] ?: 0
+    }
+
+    return nm
+}
+fun findNumbers(nums: IntArray): Int {
+    var res = 0
+    for (i in nums){
+        var a = i
+        var b = 0
+        while (a != 0){
+            b++
+            a /= 10
+        }
+        if (b % 2 == 0) res++
+    }
+    return res
 }
