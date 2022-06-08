@@ -28,7 +28,6 @@ fun main() {
     val word = arrayOf('H', 'e', 'l', 'l', 'o')
     reverseWord(word)
     println(word.toList().toString())
-    Test<Char>('d')
     k<Int>(5)
 }
 
@@ -528,10 +527,6 @@ fun <T> Array<T>.swap(first: Int, second: Int){
 }
 
 fun <T> k(j: T){
-
-}
-
-class Test <T> (c: T){
 
 }
 
