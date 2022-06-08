@@ -34,6 +34,7 @@ fun main() {
     LambdasUsage.checkLambda(5) { v, l -> v + l }
     LambdasUsage.checkLambda(5, LambdasUsage.lambda)
 
+    val lam: (Int, Int) -> (Unit) = {a:Int, b:Int -> println("hi $a and $b")}
     /*
     val arr = readLine()!!.split(" ").map { it.toInt() }
     val hm = hashMapOf<Int, Int>()

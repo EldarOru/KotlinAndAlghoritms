@@ -20,10 +20,16 @@ fun main() {
     //val data = "мама мыла раму"
     //val arrData = data.toList()
     //println(solveproblems.reverse(arrData).toString())
-    println(findWords(arrayOf("Dad", "Hello", "Alaska")))
-    val a = setOf('a','s','d','f','g','h','j','k','l')
-    val b = 'd'
-    println(a.contains(b))
+    //println(findWords(arrayOf("Dad", "Hello", "Alaska")))
+    //val a = setOf('a','s','d','f','g','h','j','k','l')
+    //val b = 'd'
+    //println(a.contains(b))
+
+    val word = arrayOf('H', 'e', 'l', 'l', 'o')
+    reverseWord(word)
+    println(word.toList().toString())
+    Test<Char>('d')
+    k<Int>(5)
 }
 
 fun firstPalindrome(words: Array<String>): String {
@@ -502,3 +508,33 @@ fun findNumbers(nums: IntArray): Int {
     }
     return res
 }
+
+fun reverseWord(arr: Array<Char>){
+    for (i in 0..(arr.size-1)/2) {
+        arr.swap(i, arr.size-1-i)
+    }
+    println(arr.toList().toString())
+    arr.swap(0,10)
+}
+
+fun <T> Array<T>.swap(first: Int, second: Int){
+    try {
+        val ch = this[first]
+        this[first] = this[second]
+        this[second] = ch
+    }catch (e: Exception){
+        println("Out of bounds")
+    }
+}
+
+fun <T> k(j: T){
+
+}
+
+class Test <T> (c: T){
+
+}
+
+interface A
+
+interface B: A
