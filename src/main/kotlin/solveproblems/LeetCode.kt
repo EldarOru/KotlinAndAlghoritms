@@ -448,7 +448,7 @@ fun canConstruct(ransomNote: String, magazine: String): Boolean {
 }
 
 fun findWords(words: Array<String>): Array<String> {
-    val arrOfSets = arrayListOf<Set<Char>>(setOf('q','w','e','r','t','y','u','i','o','p'),
+    val arrOfSets = arrayListOf(setOf('q','w','e','r','t','y','u','i','o','p'),
     setOf('a','s','d','f','g','h','j','k','l'),
     setOf('z','x','c','v','b','n','m'))
     val res = arrayListOf<String>()
@@ -524,6 +524,20 @@ fun <T> Array<T>.swap(first: Int, second: Int){
     }catch (e: Exception){
         println("Out of bounds")
     }
+}
+
+fun removeFillerWords(
+    text: List<String>,
+    vararg fillerWords: String): List<String> {
+    val fillerWordSet = setOf(*fillerWords)
+
+    val res = mutableListOf<String>()
+    for (word in text) {
+        if (word !in fillerWordSet) {
+            res += word
+        }
+    }
+    return res
 }
 
 fun <T> k(j: T){

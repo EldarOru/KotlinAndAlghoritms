@@ -13,6 +13,21 @@ fun main() {
     str += "str"
     println(str.hashCode())
 
+    println(Admin("Eldar") == Admin("Eldar"))
+    val set = hashSetOf<Admin>()
+    set.add(Admin("Eldar"))
+    set.add(Admin("Eldar"))
+    for (i in set) {
+        println(i.toString())
+    }
 }
 
 data class Player(val name: String, val status: String)
+
+class Admin(name: String) {
+    val _name = name
+
+    override fun toString(): String {
+        return "Hello, i'm admin $_name"
+    }
+}

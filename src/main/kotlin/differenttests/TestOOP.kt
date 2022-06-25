@@ -1,4 +1,4 @@
-import java.util.*
+package differenttests
 
 open class ClassA(val num: Int, str: String): TestInterface {
     val kek = str
@@ -11,12 +11,16 @@ open class ClassA(val num: Int, str: String): TestInterface {
         println(num)
     }
 
-    fun checkMethod() {}
+    open fun checkMethod() {}
+
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
+    }
 }
 
 
-class ClassB(num: Int, info: String, str: String, lambda: (Int) -> Unit): ClassA(num, str){
-    private val _info = info
+class ClassB(num: Int, info: String, str: String, val lambda: (Int) -> Unit): ClassA(num, str){
+    val _info = info
     override fun giveInfo() {
         println("$num $_info")
     }
@@ -25,6 +29,16 @@ class ClassB(num: Int, info: String, str: String, lambda: (Int) -> Unit): ClassA
     fun myMethod(){
         println("Ku")
         checkMethod()
+        lambda(num)
+
+    }
+
+    override fun checkMethod() {
+        super.checkMethod()
+    }
+
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
     }
 }
 
@@ -33,6 +47,7 @@ interface TestInterface{
     fun printCheck()
     fun or(str: String){
         println(str)
+        return
     }
 }
 
@@ -49,13 +64,9 @@ class V: Lolik(){
     override fun or() {
         super.k()
     }
-
-
-
 }
 
-
-class B() : Kokik{
+class B() : Kokik {
     override val h: Int
         get() = super.h
 
@@ -67,7 +78,9 @@ class B() : Kokik{
         TODO("Not yet implemented")
     }
 
-
+    override fun checkMethod() {
+        super.checkMethod()
+    }
 }
 
 /*
@@ -104,7 +117,9 @@ interface Kokik{
 
 //----------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------
+class Person(var n: Int) {
 
+}
 class EqualObject(private val str: String, val int: Int){
     override fun equals(other: Any?): Boolean {
         return if (other is EqualObject){
@@ -156,12 +171,29 @@ fun main() {
 
     val ob1 = EqualObject("el", 5)
     val ob2 = EqualObject("el", 5)
+    ob1.int
     println(ob1 == ob2)
 
     val z: M = Z()
     z.returnKek()
 
     ret(ClassB(5,"srt", "s") {})
+
+    val p1 = Person(2)
+    var arr = arrayOf(p1)
+    var arr1 = arrayOf(p1)
+    println(arr.contentEquals(arr1))
+    p1.n = 5
+    println(arr[0].n)
+
+    val arra = arrayListOf<Person>(Person(5))
+    val p = arra[0]
+    p.n = 2
+    println(arra[0].n)
+
+    val ai: ClassA = ClassB(5, "fa", "d") {it -> print(it)}
+    ai.giveInfo()
+
 }
 
 fun check(n: Int){
@@ -180,24 +212,42 @@ fun mysteryFunction(n: Int): Int{
     }
     return r
 }
-interface M{
+
+interface O {
+    fun hello()
+}
+private interface M : O{
+    val num: Int
+        get() = 5
+
     public fun returnKek(){
         println("EL")
     }
+
+    companion object{
+        const val myNum = 5
+    }
 }
 
-open class N(val data: Int = 5): M{
+open class N(val data: Int = 5): M {
     open val k = 5
     override fun returnKek() {
         println("NO EL")
     }
 
+    override fun hello() {
+        TODO("Not yet implemented")
+    }
+
     open fun rr(){
 
     }
+
+    override val num: Int
+        get() = 2
 }
 
-class Z(): N(){
+class Z constructor() : N(){
     override val k: Int
         get() = super.k
 }

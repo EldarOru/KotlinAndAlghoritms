@@ -1,4 +1,5 @@
-import kotlin.math.sqrt
+package differenttests
+
 interface ClickListener{
     fun onClick()
 }
@@ -6,6 +7,7 @@ class LambdasUsage {
     fun setOnClickListener(l: ClickListener){
 
     }
+
     fun checkLambda2(tr: (Int) -> Unit){
 
     }
@@ -25,7 +27,7 @@ fun main() {
     val arr = Array(5) { it }
     val lambdasUsage = LambdasUsage()
     lambdasUsage.checkLambda2 { println(it) }
-    LambdasUsage.lambda(3,2)
+    LambdasUsage.lambda(3, 2)
     var f = 12
     f = f add 2
     println(f)

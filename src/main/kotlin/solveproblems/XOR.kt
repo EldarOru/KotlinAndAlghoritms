@@ -30,19 +30,18 @@ fun singleNumber(nums: IntArray): Int {
     return result
 }
 
-
 fun main(){
     val n = try {
         readLine()?.toInt() ?: 0
     }catch (io: Exception){
         0
     }
-    val arrList = ArrayList<Int>()
-    for (i in 1..n){
-        arrList.add(readLine()?.toInt() ?: 0)
+    val arrList = IntArray(n){0}
+    for (i in arrList.indices){
+        arrList[i] = readlnOrNull()?.toIntOrNull() ?: 0
     }
 
-    println(arrList.toIntArray().bubbleSort().toList().toString())
-    println(singleNumber(arrList.toIntArray()))
+    println(arrList.bubbleSort().toList().toString())
+    println(singleNumber(arrList))
     println(5 xor 3)
 }
