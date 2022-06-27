@@ -201,6 +201,7 @@ fun check(n: Int){
         println(i)
     }
 }
+
 fun mysteryFunction(n: Int): Int{
     var r = 0
     for (i in 1 until n){
