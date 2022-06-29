@@ -194,6 +194,12 @@ fun main() {
     val ai: ClassA = ClassB(5, "fa", "d") {it -> print(it)}
     ai.giveInfo()
 
+    val p2 = Person(100)
+    changePerson(p2)
+    println(p2.n)
+
+    val range = 0..10 step 2
+    println(range)
 }
 
 fun check(n: Int){
@@ -205,6 +211,7 @@ fun check(n: Int){
 fun mysteryFunction(n: Int): Int{
     var r = 0
     for (i in 1 until n){
+
         for (j in i+1..n){
             for (k in 1..j){
                 r ++
@@ -258,3 +265,7 @@ sealed class Resource<T> (val data: T? = null, val message: String? = null){
 }
 
 fun ret(v: ClassA) = v
+
+fun changePerson(p: Person) {
+    p.n = 10
+}

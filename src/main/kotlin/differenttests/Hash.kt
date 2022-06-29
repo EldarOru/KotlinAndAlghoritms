@@ -24,10 +24,14 @@ fun main() {
 
 data class Player(val name: String, val status: String)
 
-class Admin(name: String) {
-    val _name = name
+open class Admin(name: String) {
+    private val _name = name
 
     override fun toString(): String {
         return "Hello, i'm admin $_name"
     }
+}
+
+class SubAdmin(name: String) : Admin(name) {
+    private val _name = name
 }
