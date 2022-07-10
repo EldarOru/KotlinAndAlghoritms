@@ -1,4 +1,4 @@
-package differenttests
+package DifferentTests
 
 //var не может быть т. к. мы не можем менять значения при ковариантности
 class Container<out T>(val data : T)

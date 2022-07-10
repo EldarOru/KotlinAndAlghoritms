@@ -1,4 +1,4 @@
-package solveproblems
+package SolveProblems
 
 fun IntArray.swap(a: Int,b: Int){
     this[a] = this[a] xor this[b] // a = (a ^ b), b = b

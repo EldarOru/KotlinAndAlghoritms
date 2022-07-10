@@ -1,8 +1,9 @@
-package differenttests
+package DifferentTests
 
 interface ClickListener{
     fun onClick()
 }
+
 class LambdasUsage {
     fun setOnClickListener(l: ClickListener){
 
@@ -22,11 +23,12 @@ class LambdasUsage {
     }
 }
 
-
 fun main() {
     val arr = Array(5) { it }
     val lambdasUsage = LambdasUsage()
     lambdasUsage.checkLambda2 { println(it) }
+    val aa = {i: Int -> println(i)}
+    aa(5)
     LambdasUsage.lambda(3, 2)
     var f = 12
     f = f add 2

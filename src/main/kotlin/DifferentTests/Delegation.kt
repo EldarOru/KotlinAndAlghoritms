@@ -1,4 +1,4 @@
-package differenttests
+package DifferentTests
 
 interface Base {
     fun print()

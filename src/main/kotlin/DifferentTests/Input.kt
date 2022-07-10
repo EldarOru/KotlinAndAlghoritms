@@ -1,6 +1,4 @@
-package differenttests
-
-import kotlin.math.max
+package DifferentTests
 
 
 fun main() {

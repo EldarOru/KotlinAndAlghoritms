@@ -1,4 +1,4 @@
-package differenttests
+package DifferentTests
 
 open class ClassA(val num: Int, str: String): TestInterface {
     val kek = str
@@ -118,7 +118,11 @@ interface Kokik{
 //----------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------
 class Person(var n: Int) {
-
+    private var l = "str"
+    get() = field
+    set(value) {
+        field = value
+    }
 }
 class EqualObject(private val str: String, val int: Int){
     override fun equals(other: Any?): Boolean {

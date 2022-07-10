@@ -1,8 +1,6 @@
-package solveproblems
+package SolveProblems
 
 import java.util.*
-import kotlin.collections.ArrayDeque
-import kotlin.collections.ArrayList
 import kotlin.math.abs
 import kotlin.math.min
 

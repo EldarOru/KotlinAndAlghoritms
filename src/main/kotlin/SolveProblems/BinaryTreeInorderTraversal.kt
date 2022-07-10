@@ -1,4 +1,4 @@
-package solveproblems
+package SolveProblems
 
 import java.util.*
 import kotlin.collections.ArrayList
